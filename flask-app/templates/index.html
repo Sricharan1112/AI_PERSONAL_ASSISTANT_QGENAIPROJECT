@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Personal Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div class="app-layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">🤖</span>
+        <span class="brand-name">AI Assistant</span>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-panel="chat">💬 Chat</button>
+        <button class="nav-btn" data-panel="reminders">⏰ Reminders</button>
+        <button class="nav-btn" data-panel="notes">📝 Notes</button>
+        <button class="nav-btn" data-panel="planner">📅 Planner</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">Connecting...</span>
+      </div>
+    </aside>
+
+    <!-- ── Main Content ── -->
+    <main class="main-content">
+
+      <!-- CHAT PANEL -->
+      <section class="panel active" id="panel-chat">
+        <div class="panel-header">
+          <h1>Chat with your AI Assistant</h1>
+          <button class="btn-ghost" id="clearChat">Clear chat</button>
+        </div>
+        <div class="chat-window" id="chatWindow">
+          <div class="message assistant">
+            <div class="avatar">🤖</div>
+            <div class="bubble">
+              Hi! I'm your AI personal assistant. I can help you chat, set reminders, take notes, and plan your productivity. What would you like to do today?
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="chatInput" placeholder="Type a message... (Shift+Enter for new line)" rows="1"></textarea>
+          <button class="btn-primary" id="sendBtn">Send ➤</button>
+        </div>
+      </section>
+
+      <!-- REMINDERS PANEL -->
+      <section class="panel" id="panel-reminders">
+        <div class="panel-header">
+          <h1>⏰ Reminders</h1>
+        </div>
+        <div class="ai-input-card">
+          <h3>🤖 Create with AI</h3>
+          <p class="hint">Describe your reminder naturally, e.g. "Remind me to submit the report tomorrow at 9am"</p>
+          <div class="input-row">
+            <input type="text" id="aiReminderInput" placeholder="Tell the AI what to remind you about..."/>
+            <button class="btn-primary" id="aiReminderBtn">AI Create</button>
+          </div>
+        </div>
+        <div class="manual-card">
+          <h3>Manual Create</h3>
+          <div class="form-grid">
+            <input type="text" id="reminderTitle" placeholder="Reminder title"/>
+            <input type="date" id="reminderDate"/>
+            <input type="time" id="reminderTime"/>
+            <select id="reminderPriority">
+              <option value="low">Low priority</option>
+              <option value="medium" selected>Medium priority</option>
+              <option value="high">High priority</option>
+            </select>
+          </div>
+          <button class="btn-primary" id="createReminderBtn">+ Create Reminder</button>
+        </div>
+        <div class="items-list" id="remindersList">
+          <div class="empty-state">No reminders yet. Create one above!</div>
+        </div>
+      </section>
+
+      <!-- NOTES PANEL -->
+      <section class="panel" id="panel-notes">
+        <div class="panel-header">
+          <h1>📝 Notes</h1>
+        </div>
+        <div class="manual-card">
+          <div class="form-grid">
+            <input type="text" id="noteTitle" placeholder="Note title"/>
+            <textarea id="noteContent" placeholder="Write your note here..." rows="5"></textarea>
+          </div>
+          <div class="btn-row">
+            <button class="btn-secondary" id="summarizeBtn">🤖 AI Summarize & Save</button>
+            <button class="btn-primary" id="saveNoteBtn">Save Note</button>
+          </div>
+        </div>
+        <div class="summary-output hidden" id="summaryOutput">
+          <h3>AI Summary</h3>
+          <div id="summaryText"></div>
+        </div>
+        <div class="items-list" id="notesList">
+          <div class="empty-state">No notes yet. Write one above!</div>
+        </div>
+      </section>
+
+      <!-- PLANNER PANEL -->
+      <section class="panel" id="panel-planner">
+        <div class="panel-header">
+          <h1>📅 Productivity Planner</h1>
+        </div>
+        <div class="ai-input-card">
+          <h3>🤖 AI-Powered Planning</h3>
+          <p class="hint">Describe your goal and the AI will create a step-by-step plan for you</p>
+          <textarea id="plannerGoal" placeholder="What do you want to achieve? e.g. 'Build a portfolio website in 2 weeks'" rows="3"></textarea>
+          <div class="btn-row">
+            <button class="btn-primary" id="generatePlanBtn">🚀 Generate Plan</button>
+            <button class="btn-secondary" id="savePlanBtn" disabled>💾 Save to Tasks</button>
+          </div>
+        </div>
+        <div class="plan-output hidden" id="planOutput">
+          <h3>Your AI-Generated Plan</h3>
+          <div id="planText"></div>
+        </div>
+        <div class="items-list" id="tasksList">
+          <div class="empty-state">No tasks yet. Generate a plan above!</div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
