@@ -6,7 +6,7 @@ hands-on before committing to one for the rest of the project.
 
 ## 🌐 Live Demo
 
-**👉 file:///C:/Users/CH%20SRI%20CHARAN/Downloads/ai-roadmap-website.html**
+**👉 [file:///C:/Users/CH%20SRI%20CHARAN/Downloads/ai-roadmap-website.html](file:///C:/Users/CH%20SRI%20CHARAN/Downloads/ai-roadmap-website.html)**
 
 Both implement the same architecture:
 
