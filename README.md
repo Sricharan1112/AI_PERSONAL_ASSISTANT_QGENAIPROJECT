@@ -5,7 +5,7 @@ backend — one in **Flask**, one in **Django** — so you can compare them
 hands-on before committing to one for the rest of the project.
 
 ## 🌐 Project Website
-[https://rainbow-unicorn-123456.netlify.app/](https://Sricharan1112/AI_PERSONAL_ASSISTANT_QGENAIPROJECT/)
+[View Project Roadmap](https://rainbow-unicorn-123456.netlify.app/)
 
 Both implement the same architecture:
 
