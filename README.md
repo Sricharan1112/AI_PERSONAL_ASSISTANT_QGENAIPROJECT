@@ -4,6 +4,10 @@ This repo contains two parallel implementations of the same AI Assistant
 backend — one in **Flask**, one in **Django** — so you can compare them
 hands-on before committing to one for the rest of the project.
 
+## 🌐 Live Demo
+
+**👉 file:///C:/Users/CH%20SRI%20CHARAN/Downloads/ai-roadmap-website.html**
+
 Both implement the same architecture:
 
 ```
